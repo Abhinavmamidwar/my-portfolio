@@ -6,6 +6,7 @@
     <title>Abhinav Mamidwar - Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* ALL YOUR EXISTING CSS STYLES HERE - Keep them exactly as before */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         * {
@@ -22,12 +23,10 @@
             overflow-x: hidden;
         }
 
-        /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Better Background - Abstract Tech Pattern */
         .tech-bg {
             position: fixed;
             top: 0;
@@ -41,7 +40,6 @@
             opacity: 0.8;
         }
 
-        /* Subtle Grid Pattern */
         .tech-bg::before {
             content: '';
             position: absolute;
@@ -55,7 +53,6 @@
             background-size: 50px 50px;
         }
 
-        /* Floating Dots */
         .floating-dots {
             position: fixed;
             top: 0;
@@ -82,7 +79,6 @@
             100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
 
-        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -174,7 +170,6 @@
             padding: 6rem 2rem;
         }
 
-        /* Hero Section - With Profile Image */
         .hero {
             min-height: calc(100vh - 70px);
             display: flex;
@@ -306,7 +301,6 @@
             color: #3b82f6;
         }
 
-        /* Profile Image */
         .profile-container {
             position: relative;
         }
@@ -341,13 +335,6 @@
             object-fit: cover;
         }
 
-        .profile-placeholder {
-            font-size: 5rem;
-            color: white;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        /* About Section */
         .about-section {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(59, 130, 246, 0.2);
@@ -467,7 +454,6 @@
             font-size: 0.9rem;
         }
 
-        /* Section Styles */
         .section-tag {
             text-align: center;
             color: #3b82f6;
@@ -493,7 +479,6 @@
             margin: 0 auto 4rem;
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -547,7 +532,6 @@
             font-size: 0.8rem;
         }
 
-        /* Projects Section */
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -676,7 +660,6 @@
             gap: 0.6rem;
         }
 
-        /* Experience Timeline */
         .timeline {
             max-width: 800px;
             margin: 0 auto;
@@ -740,7 +723,6 @@
             margin-left: 0.5rem;
         }
 
-        /* Education Section */
         .education-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -806,7 +788,6 @@
             color: #10b981;
         }
 
-        /* Certificates Section */
         .certificates-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -849,7 +830,6 @@
             font-size: 0.85rem;
         }
 
-        /* Contact Section */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -958,7 +938,6 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 2rem;
@@ -967,7 +946,6 @@
             font-size: 0.9rem;
         }
 
-        /* Admin Button */
         .admin-btn {
             position: fixed;
             bottom: 20px;
@@ -993,7 +971,6 @@
             transform: rotate(90deg);
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -1075,7 +1052,7 @@
     </style>
 </head>
 <body>
-    <!-- Better Background -->
+    <!-- Background -->
     <div class="tech-bg"></div>
     <div class="floating-dots" id="floatingDots"></div>
 
@@ -1100,353 +1077,93 @@
     </header>
 
     <main>
-        <!-- Hero Section with Profile Image -->
+        <!-- Hero Section - Will be populated by JavaScript -->
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-grid">
-                    <div class="hero-content">
-                        <span class="hero-tag">Data Scientist</span>
-                        <h1>Abhinav Bhumaji <span class="last-name">Mamidwar</span></h1>
-                        <h2>I humanize data</h2>
-                        <p>Passionate data scientist with expertise in machine learning, statistical analysis, and data visualization. I love turning complex data into actionable insights.</p>
-                        
-                        <div class="hero-contact">
-                            <a href="mailto:abhinavmamidwar22@gmail.com" class="hero-contact-item">
-                                <i class="fas fa-envelope"></i> abhinavmamidwar22@gmail.com
-                            </a>
-                            <a href="#" class="hero-contact-item">
-                                <i class="fas fa-map-marker-alt"></i> Pune, Maharashtra
-                            </a>
-                            <a href="#" class="hero-contact-item">
-                                <i class="fab fa-linkedin"></i> LinkedIn
-                            </a>
-                        </div>
-
-                        <div class="hero-buttons">
-                            <a href="#projects" class="btn-primary">
-                                View My Work <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <a href="#contact" class="btn-secondary">
-                                Let's Talk <i class="fas fa-comment"></i>
-                            </a>
-                        </div>
+                    <div class="hero-content" id="hero-content">
+                        <!-- JavaScript will fill this -->
                     </div>
-
-                    <div class="profile-container">
-                        <div class="profile-image">
-                            <!-- Replace src with your actual image -->
-                            <img src="https://ui-avatars.com/api/?name=Abhinav+Mamidwar&size=400&background=3b82f6&color=fff&bold=true" alt="Abhinav Mamidwar">
-                        </div>
+                    <div class="profile-container" id="profile-container">
+                        <!-- JavaScript will fill this -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section - New -->
+        <!-- About Section - Will be populated by JavaScript -->
         <section id="about">
             <div class="container">
                 <div class="section-tag">About Me</div>
-                <h2 class="section-title">Who I Am</h2>
-                <p class="section-subtitle">Get to know me better</p>
-
-                <div class="about-section">
-                    <div class="about-grid">
-                        <div class="about-left">
-                            <h3>Passionate Data Scientist</h3>
-                            <p>I'm a data scientist with a passion for turning raw data into meaningful insights. With over 5 years of experience in machine learning and statistical analysis, I've helped businesses make data-driven decisions that drive growth and innovation.</p>
-                            <p>My approach combines technical expertise with creative problem-solving. I believe that data tells a story, and my job is to help you understand that story and use it to your advantage.</p>
-                            
-                            <div class="about-highlights">
-                                <div class="highlight-item">
-                                    <div class="highlight-icon"><i class="fas fa-brain"></i></div>
-                                    <div>
-                                        <div class="highlight-text">Machine Learning</div>
-                                        <div class="highlight-desc">Building predictive models</div>
-                                    </div>
-                                </div>
-                                <div class="highlight-item">
-                                    <div class="highlight-icon"><i class="fas fa-chart-line"></i></div>
-                                    <div>
-                                        <div class="highlight-text">Data Analysis</div>
-                                        <div class="highlight-desc">Extracting insights</div>
-                                    </div>
-                                </div>
-                                <div class="highlight-item">
-                                    <div class="highlight-icon"><i class="fas fa-eye"></i></div>
-                                    <div>
-                                        <div class="highlight-text">Data Visualization</div>
-                                        <div class="highlight-desc">Telling stories with data</div>
-                                    </div>
-                                </div>
-                                <div class="highlight-item">
-                                    <div class="highlight-icon"><i class="fas fa-cogs"></i></div>
-                                    <div>
-                                        <div class="highlight-text">Problem Solving</div>
-                                        <div class="highlight-desc">Creative solutions</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="about-right">
-                            <div class="about-stats">
-                                <div class="stat-card">
-                                    <div class="stat-number">5+</div>
-                                    <div class="stat-label">Years Experience</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number">15+</div>
-                                    <div class="stat-label">Projects Completed</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number">25+</div>
-                                    <div class="stat-label">Skills Mastered</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number">20+</div>
-                                    <div class="stat-label">Happy Clients</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="section-title" id="about-title"></h2>
+                <p class="section-subtitle" id="about-subtitle"></p>
+                <div id="about-content"></div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Skills Section - Will be populated by JavaScript -->
         <section id="skills">
             <div class="container">
                 <div class="section-tag">Expertise</div>
                 <h2 class="section-title">Skills & Expertise</h2>
                 <p class="section-subtitle">A comprehensive set of technical skills and tools I use to solve complex data problems</p>
-
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-items">
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Python</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> R</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> SQL</div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Data Science</h3>
-                        <div class="skill-items">
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Machine Learning</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Statistical Analysis</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Data Visualization</div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Frameworks & Libraries</h3>
-                        <div class="skill-items">
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Pandas</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Scikit-learn</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> TensorFlow</div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Tools & Platforms</h3>
-                        <div class="skill-items">
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Jupyter</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Tableau</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Power BI</div>
-                            <div class="skill-item"><i class="fas fa-check-circle"></i> Git</div>
-                        </div>
-                    </div>
-                </div>
+                <div id="skills-content" class="skills-grid"></div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects Section - Will be populated by JavaScript -->
         <section id="projects">
             <div class="container">
                 <div class="section-tag">Portfolio</div>
                 <h2 class="section-title">My Projects</h2>
                 <p class="section-subtitle">A showcase of my data science projects and technical work</p>
-
-                <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-                    <button class="filter-btn" onclick="filterProjects('Machine Learning')">Machine Learning</button>
-                    <button class="filter-btn" onclick="filterProjects('Data Analysis')">Data Analysis</button>
-                    <button class="filter-btn" onclick="filterProjects('Research')">Research</button>
-                </div>
-
-                <div id="projects-container" class="projects-grid">
-                    <!-- Projects will be loaded here -->
-                </div>
+                <div class="filter-buttons" id="filter-buttons"></div>
+                <div id="projects-content" class="projects-grid"></div>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Experience Section - Will be populated by JavaScript -->
         <section id="experience">
             <div class="container">
                 <div class="section-tag">Career</div>
                 <h2 class="section-title">Experience</h2>
                 <p class="section-subtitle">Professional experience and career journey</p>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Sep 2022 - Present</div>
-                        <div class="timeline-content">
-                            <h3>Senior Data Scientist</h3>
-                            <div class="timeline-company">Innovate AI <span class="current-badge">Current</span></div>
-                            <p>Leading model development for personalization features across the product suite, focusing on recommendation systems and experiment-driven improvements.</p>
-                            <ul class="timeline-highlights">
-                                <li><i class="fas fa-check"></i> Launched a personalization recommender that increased click-through by 18%</li>
-                                <li><i class="fas fa-check"></i> Introduced A/B testing framework and automated analysis pipelines</li>
-                                <li><i class="fas fa-check"></i> Lead team of 5 data scientists</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Jun 2019 - Aug 2022</div>
-                        <div class="timeline-content">
-                            <h3>Data Scientist</h3>
-                            <div class="timeline-company">Acme Corporation</div>
-                            <p>Built end-to-end ML pipelines for customer segmentation and churn prediction. Collaborated with product and engineering to deploy models in production.</p>
-                            <ul class="timeline-highlights">
-                                <li><i class="fas fa-check"></i> Developed a churn prediction model that improved retention by 12%</li>
-                                <li><i class="fas fa-check"></i> Designed ETL pipelines to process 5M+ events per day</li>
-                                <li><i class="fas fa-check"></i> Mentored two junior data scientists</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <div id="experience-content" class="timeline"></div>
             </div>
         </section>
 
-        <!-- Education Section -->
+        <!-- Education Section - Will be populated by JavaScript -->
         <section id="education">
             <div class="container">
                 <div class="section-tag">Education</div>
                 <h2 class="section-title">Academic Background</h2>
                 <p class="section-subtitle">My educational qualifications</p>
-
-                <div class="education-grid">
-                    <div class="education-card">
-                        <h3>M.S. in Data Science</h3>
-                        <div class="education-school">University of Data Science</div>
-                        <div class="education-date">Sep 2016 - Jun 2018</div>
-                        <div class="education-gpa">GPA: 3.9</div>
-                        <ul class="education-achievements">
-                            <li><i class="fas fa-check"></i> Thesis on time-series forecasting for retail sales</li>
-                            <li><i class="fas fa-check"></i> Graduate research assistantship</li>
-                        </ul>
-                    </div>
-                    <div class="education-card">
-                        <h3>B.S. in Computer Science</h3>
-                        <div class="education-school">State University</div>
-                        <div class="education-date">Sep 2012 - Jun 2016</div>
-                        <ul class="education-achievements">
-                            <li><i class="fas fa-check"></i> Dean's List</li>
-                            <li><i class="fas fa-check"></i> Capstone: Scalable data ingestion system</li>
-                        </ul>
-                    </div>
-                </div>
+                <div id="education-content" class="education-grid"></div>
             </div>
         </section>
 
-        <!-- Certificates Section -->
+        <!-- Certificates Section - Will be populated by JavaScript -->
         <section id="certificates">
             <div class="container">
                 <div class="section-tag">Certifications</div>
                 <h2 class="section-title">Certificates & Courses</h2>
                 <p class="section-subtitle">Professional certifications and completed courses that validate my expertise</p>
-
-                <div class="certificates-grid">
-                    <div class="certificate-card">
-                        <div class="certificate-icon">📜</div>
-                        <h4>Data Science Fundamentals</h4>
-                        <div class="certificate-issuer">Coursera - Stanford University</div>
-                        <div class="certificate-date">Completed: 2024</div>
-                    </div>
-                    <div class="certificate-card">
-                        <div class="certificate-icon">🎓</div>
-                        <h4>Machine Learning Specialization</h4>
-                        <div class="certificate-issuer">Coursera - Andrew Ng</div>
-                        <div class="certificate-date">Completed: 2024</div>
-                    </div>
-                    <div class="certificate-card">
-                        <div class="certificate-icon">🐍</div>
-                        <h4>Python for Data Science</h4>
-                        <div class="certificate-issuer">IBM - Cognitive Class</div>
-                        <div class="certificate-date">Completed: 2024</div>
-                    </div>
-                    <div class="certificate-card">
-                        <div class="certificate-icon">📊</div>
-                        <h4>Data Visualization</h4>
-                        <div class="certificate-issuer">Tableau Public</div>
-                        <div class="certificate-date">Completed: 2024</div>
-                    </div>
-                    <div class="certificate-card">
-                        <div class="certificate-icon">📈</div>
-                        <h4>Statistics for Data Science</h4>
-                        <div class="certificate-issuer">edX - MIT</div>
-                        <div class="certificate-date">Completed: 2024</div>
-                    </div>
-                    <div class="certificate-card">
-                        <div class="certificate-icon">☁️</div>
-                        <h4>Cloud Computing for Data</h4>
-                        <div class="certificate-issuer">AWS Training</div>
-                        <div class="certificate-date">Completed: 2024</div>
-                    </div>
-                </div>
+                <div id="certificates-content" class="certificates-grid"></div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section - Will be populated by JavaScript -->
         <section id="contact">
             <div class="container">
                 <div class="section-tag">Get in Touch</div>
                 <h2 class="section-title">Let's Work Together</h2>
                 <p class="section-subtitle">Have a project in mind? I'd love to hear about it.</p>
-
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Let's Connect</h3>
-                        <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out!</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-detail">
-                                <i class="fas fa-envelope"></i>
-                                <span>abhinavmamidwar22@gmail.com</span>
-                            </div>
-                            <div class="contact-detail">
-                                <i class="fas fa-phone"></i>
-                                <span>7038797238</span>
-                            </div>
-                            <div class="contact-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Pune, Maharashtra</span>
-                            </div>
-                        </div>
-
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-
-                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! I\'ll get back to you soon.');">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
+                <div id="contact-content" class="contact-grid"></div>
             </div>
         </section>
 
         <footer class="footer">
-            <p>© 2026 Abhinav Bhumaji Mamidwar. All rights reserved.</p>
+            <p id="footer-text"></p>
         </footer>
     </main>
 
@@ -1456,9 +1173,9 @@
     </a>
 
     <script>
-        // Floating dots
+        // Floating dots background
         function createDots() {
-            const container = document.getElementById('floatingDots');
+            const container = document.querySelector('.floating-dots');
             for (let i = 0; i < 50; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'dot';
@@ -1469,76 +1186,215 @@
         }
         createDots();
 
-        // Projects data
-        const projects = [
-            {
-                id: 1,
-                title: "Customer Churn Prediction",
-                description: "Machine learning model to predict customer churn with 92% accuracy",
-                date: "March 2026",
-                technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
-                featured: true,
-                category: "Machine Learning",
-                image: "📊"
-            },
-            {
-                id: 2,
-                title: "Sales Dashboard",
-                description: "Interactive dashboard for sales analytics and reporting",
-                date: "March 2026",
-                technologies: ["React", "D3.js", "Python", "Flask", "PostgreSQL"],
-                featured: true,
-                category: "Data Analysis",
-                image: "📈"
-            },
-            {
-                id: 3,
-                title: "NLP Sentiment Analysis",
-                description: "Real-time sentiment analysis system for social media monitoring",
-                date: "February 2026",
-                technologies: ["Python", "NLTK", "Transformers", "BERT"],
-                featured: false,
-                category: "Machine Learning",
-                image: "💬"
-            },
-            {
-                id: 4,
-                title: "Recommendation Engine",
-                description: "Personalized recommendation system for e-commerce",
-                date: "January 2026",
-                technologies: ["Python", "TensorFlow", "Keras", "MongoDB"],
-                featured: false,
-                category: "Machine Learning",
-                image: "🎯"
-            },
-            {
-                id: 5,
-                title: "Time Series Forecasting",
-                description: "Sales forecasting model using LSTM and Prophet",
-                date: "December 2025",
-                technologies: ["Python", "Prophet", "LSTM", "Pandas"],
-                featured: false,
-                category: "Research",
-                image: "📉"
-            },
-            {
-                id: 6,
-                title: "Image Classification",
-                description: "CNN-based image classification system for medical imaging",
-                date: "November 2025",
-                technologies: ["Python", "TensorFlow", "Keras", "OpenCV"],
-                featured: true,
-                category: "Research",
-                image: "🖼️"
+        // Load data from JSON file
+        async function loadPortfolioData() {
+            try {
+                // Add cache-busting query parameter to force fresh load
+                const response = await fetch(`data.json?t=${new Date().getTime()}`);
+                const data = await response.json();
+                renderPortfolio(data);
+            } catch (error) {
+                console.error('Error loading data:', error);
+                // Fallback to hardcoded data if JSON fails
+                loadFallbackData();
             }
-        ];
+        }
 
-        // Display projects
-        function displayProjects(category = 'all') {
-            const container = document.getElementById('projects-container');
+        // Render everything
+        function renderPortfolio(data) {
+            // Hero Section
+            document.getElementById('hero-content').innerHTML = `
+                <span class="hero-tag">${data.personal.title}</span>
+                <h1>${data.personal.name.split(' ')[0]} ${data.personal.name.split(' ')[1]} <span class="last-name">${data.personal.name.split(' ')[2]}</span></h1>
+                <h2>${data.personal.tagline}</h2>
+                <p>${data.personal.bio}</p>
+                <div class="hero-contact">
+                    <a href="mailto:${data.personal.email}" class="hero-contact-item">
+                        <i class="fas fa-envelope"></i> ${data.personal.email}
+                    </a>
+                    <a href="#" class="hero-contact-item">
+                        <i class="fas fa-map-marker-alt"></i> ${data.personal.location}
+                    </a>
+                    <a href="${data.social.linkedin}" class="hero-contact-item">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">
+                        View My Work <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        Let's Talk <i class="fas fa-comment"></i>
+                    </a>
+                </div>
+            `;
+
+            document.getElementById('profile-container').innerHTML = `
+                <div class="profile-image">
+                    <img src="${data.profile.image}" alt="${data.personal.name}">
+                </div>
+            `;
+
+            // About Section
+            document.getElementById('about-title').textContent = data.about.title;
+            document.getElementById('about-subtitle').textContent = 'Get to know me better';
+            
+            document.getElementById('about-content').innerHTML = `
+                <div class="about-section">
+                    <div class="about-grid">
+                        <div class="about-left">
+                            <h3>${data.about.title}</h3>
+                            <p>${data.about.description1}</p>
+                            <p>${data.about.description2}</p>
+                            
+                            <div class="about-highlights">
+                                ${data.about.highlights.map(h => `
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon"><i class="fas fa-${h.icon}"></i></div>
+                                        <div>
+                                            <div class="highlight-text">${h.text}</div>
+                                            <div class="highlight-desc">${h.desc}</div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="about-right">
+                            <div class="about-stats">
+                                ${data.about.stats.map(stat => `
+                                    <div class="stat-card">
+                                        <div class="stat-number">${stat.number}</div>
+                                        <div class="stat-label">${stat.label}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Skills Section
+            document.getElementById('skills-content').innerHTML = data.skills.map(skill => `
+                <div class="skill-category">
+                    <h3>${skill.category}</h3>
+                    <div class="skill-items">
+                        ${skill.items.map(item => `
+                            <div class="skill-item"><i class="fas fa-check-circle"></i> ${item}</div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            // Projects Section
+            const categories = [...new Set(data.projects.map(p => p.category))];
+            document.getElementById('filter-buttons').innerHTML = `
+                <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+                ${categories.map(cat => `
+                    <button class="filter-btn" onclick="filterProjects('${cat}')">${cat}</button>
+                `).join('')}
+            `;
+
+            window.allProjects = data.projects;
+            displayProjects('all');
+
+            // Experience Section
+            document.getElementById('experience-content').innerHTML = data.experience.map(exp => `
+                <div class="timeline-item">
+                    <div class="timeline-date">${exp.startDate} - ${exp.endDate}</div>
+                    <div class="timeline-content">
+                        <h3>${exp.role}</h3>
+                        <div class="timeline-company">
+                            ${exp.company}
+                            ${exp.current ? '<span class="current-badge">Current</span>' : ''}
+                        </div>
+                        <p>${exp.description}</p>
+                        <ul class="timeline-highlights">
+                            ${exp.highlights.map(h => `
+                                <li><i class="fas fa-check"></i> ${h}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
+
+            // Education Section
+            document.getElementById('education-content').innerHTML = data.education.map(edu => `
+                <div class="education-card">
+                    <h3>${edu.degree}</h3>
+                    <div class="education-school">${edu.school}</div>
+                    <div class="education-date">${edu.startDate} - ${edu.endDate}</div>
+                    ${edu.gpa ? `<div class="education-gpa">GPA: ${edu.gpa}</div>` : ''}
+                    <ul class="education-achievements">
+                        ${edu.achievements.map(a => `
+                            <li><i class="fas fa-check"></i> ${a}</li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            // Certificates Section
+            document.getElementById('certificates-content').innerHTML = data.certificates.map(cert => `
+                <div class="certificate-card">
+                    <div class="certificate-icon">${cert.icon}</div>
+                    <h4>${cert.title}</h4>
+                    <div class="certificate-issuer">${cert.issuer}</div>
+                    <div class="certificate-date">Completed: ${cert.date}</div>
+                </div>
+            `).join('');
+
+            // Contact Section
+            document.getElementById('contact-content').innerHTML = `
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>${data.personal.email}</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>${data.personal.phone}</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${data.personal.location}</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="${data.social.linkedin}" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="${data.social.github}" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="${data.social.twitter}" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! I\\'ll get back to you soon.');">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            `;
+
+            // Footer
+            document.getElementById('footer-text').textContent = `© 2026 ${data.personal.name}. All rights reserved.`;
+        }
+
+        // Display projects with filter
+        function displayProjects(category) {
+            const container = document.getElementById('projects-content');
             const filtered = category === 'all' 
-                ? projects 
-                : projects.filter(p => p.category === category);
+                ? window.allProjects 
+                : window.allProjects.filter(p => p.category === category);
             
             container.innerHTML = filtered.map(project => `
                 <div class="project-card">
@@ -1554,15 +1410,15 @@
                             ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">Live Demo <i class="fas fa-arrow-right"></i></a>
-                            <a href="#" class="project-link">GitHub <i class="fab fa-github"></i></a>
+                            <a href="${project.liveLink}" class="project-link">Live Demo <i class="fas fa-arrow-right"></i></a>
+                            <a href="${project.githubLink}" class="project-link">GitHub <i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Filter projects
+        // Filter projects function (global)
         window.filterProjects = function(category) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => {
@@ -1571,13 +1427,75 @@
                     btn.classList.add('active');
                 }
             });
-            displayProjects(category === 'all' ? 'all' : category);
+            displayProjects(category);
         };
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            displayProjects('all');
+        // Fallback data
+        function loadFallbackData() {
+            const fallbackData = {
+                personal: {
+                    name: "Abhinav Bhumaji Mamidwar",
+                    title: "Data Scientist",
+                    tagline: "I humanize data",
+                    bio: "Passionate data scientist with expertise in machine learning, statistical analysis, and data visualization.",
+                    email: "abhinavmamidwar22@gmail.com",
+                    phone: "7038797238",
+                    location: "Pune, Maharashtra"
+                },
+                profile: {
+                    image: "https://ui-avatars.com/api/?name=Abhinav+Mamidwar&size=400&background=3b82f6&color=fff&bold=true"
+                },
+                about: {
+                    title: "Passionate Data Scientist",
+                    description1: "I'm a data scientist with a passion for turning raw data into meaningful insights.",
+                    description2: "My approach combines technical expertise with creative problem-solving.",
+                    highlights: [
+                        { icon: "brain", text: "Machine Learning", desc: "Building predictive models" },
+                        { icon: "chart-line", text: "Data Analysis", desc: "Extracting insights" }
+                    ],
+                    stats: [
+                        { number: "5+", label: "Years Experience" },
+                        { number: "15+", label: "Projects Completed" }
+                    ]
+                },
+                skills: [
+                    {
+                        category: "Programming Languages",
+                        items: ["Python", "R", "SQL"]
+                    }
+                ],
+                projects: [],
+                experience: [],
+                education: [],
+                certificates: [],
+                social: {
+                    linkedin: "#",
+                    github: "#",
+                    twitter: "#"
+                }
+            };
+            renderPortfolio(fallbackData);
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', loadPortfolioData);
+
+        // Refresh data every 30 seconds to catch updates
+        setInterval(loadPortfolioData, 30000);
     </script>
 </body>
 </html>
