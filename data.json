@@ -9,41 +9,86 @@
     "location": "Pune, Maharashtra"
   },
   "profile": {
-    "image": "https://ui-avatars.com/api/?name=Abhinav+Mamidwar&size=400&background=3b82f6&color=fff&bold=true"
+    "image": "https://instasize.com/p/870d4994c5d9bb052e7920176277cc566bb251a70e2f02205581bf9c1946286e"
   },
   "about": {
     "title": "Passionate Data Scientist",
     "description1": "I'm a data scientist with a passion for turning raw data into meaningful insights. With over 5 years of experience in machine learning and statistical analysis, I've helped businesses make data-driven decisions that drive growth and innovation.",
     "description2": "My approach combines technical expertise with creative problem-solving. I believe that data tells a story, and my job is to help you understand that story and use it to your advantage.",
     "highlights": [
-      { "icon": "brain", "text": "Machine Learning", "desc": "Building predictive models" },
-      { "icon": "chart-line", "text": "Data Analysis", "desc": "Extracting insights" },
-      { "icon": "eye", "text": "Data Visualization", "desc": "Telling stories with data" },
-      { "icon": "cogs", "text": "Problem Solving", "desc": "Creative solutions" }
+      {
+        "icon": "brain",
+        "text": "Machine Learning",
+        "desc": "Building predictive models"
+      },
+      {
+        "icon": "chart-line",
+        "text": "Data Analysis",
+        "desc": "Extracting insights"
+      },
+      {
+        "icon": "eye",
+        "text": "Data Visualization",
+        "desc": "Telling stories with data"
+      },
+      {
+        "icon": "cogs",
+        "text": "Problem Solving",
+        "desc": "Creative solutions"
+      }
     ],
     "stats": [
-      { "number": "5+", "label": "Years Experience" },
-      { "number": "15+", "label": "Projects Completed" },
-      { "number": "25+", "label": "Skills Mastered" },
-      { "number": "20+", "label": "Happy Clients" }
+      {
+        "number": "5+",
+        "label": "Years Experience"
+      },
+      {
+        "number": "15+",
+        "label": "Projects Completed"
+      },
+      {
+        "number": "25+",
+        "label": "Skills Mastered"
+      },
+      {
+        "number": "20+",
+        "label": "Happy Clients"
+      }
     ]
   },
   "skills": [
     {
       "category": "Programming Languages",
-      "items": ["Python", "R", "SQL"]
+      "items": [
+        "Python",
+        "R",
+        "SQL"
+      ]
     },
     {
       "category": "Data Science",
-      "items": ["Machine Learning", "Statistical Analysis", "Data Visualization"]
+      "items": [
+        "Machine Learning",
+        "Statistical Analysis",
+        "Data Visualization"
+      ]
     },
     {
       "category": "Frameworks & Libraries",
-      "items": ["Pandas", "Scikit-learn", "TensorFlow"]
+      "items": [
+        "Pandas",
+        "Scikit-learn",
+        "TensorFlow"
+      ]
     },
     {
       "category": "Tools & Platforms",
-      "items": ["Jupyter", "Tableau", "Power BI", "Git"]
+      "items": [
+        "Jupyter",
+        "Tableau",
+        "Power BI",
+        "Git"
+      ]
     }
   ],
   "projects": [
@@ -52,7 +97,13 @@
       "title": "Customer Churn Prediction",
       "description": "Machine learning model to predict customer churn with 92% accuracy",
       "date": "March 2026",
-      "technologies": ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+      "technologies": [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy",
+        "Matplotlib"
+      ],
       "featured": true,
       "category": "Machine Learning",
       "image": "📊",
@@ -64,7 +115,13 @@
       "title": "Sales Dashboard",
       "description": "Interactive dashboard for sales analytics and reporting",
       "date": "March 2026",
-      "technologies": ["React", "D3.js", "Python", "Flask", "PostgreSQL"],
+      "technologies": [
+        "React",
+        "D3.js",
+        "Python",
+        "Flask",
+        "PostgreSQL"
+      ],
       "featured": true,
       "category": "Data Analysis",
       "image": "📈",
