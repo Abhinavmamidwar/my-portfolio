@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Edit Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0c10;
+            color: #e5e9f0;
+            line-height: 1.6;
+        }
+
+        .admin-header {
+            background: #1a1f2e;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #3b82f6;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .admin-header h1 {
+            font-size: 1.5rem;
+            color: #3b82f6;
+        }
+
+        .save-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .save-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            background: #1a1f2e;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            color: #e5e9f0;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tab-btn.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .tab-btn:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        .section-card {
+            background: #1a1f2e;
+            border: 1px solid #3b82f6;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #3b82f6;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: #0a0c10;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #0a0c10;
+            border-radius: 8px;
+            min-height: 50px;
+        }
+
+        .item-tag {
+            background: #3b82f6;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .item-tag button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .add-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-card,
+        .experience-card,
+        .education-card,
+        .certificate-card {
+            background: #0a0c10;
+            border: 1px solid #3b82f6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .delete-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.3rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .add-new-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .preview-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 80px;
+            background: #3b82f6;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .preview-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .admin-logout {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ef4444;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .admin-logout:hover {
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <h1><i class="fas fa-cog"></i> Portfolio Admin Panel</h1>
+        <button class="save-btn" onclick="saveAllData()">
+            <i class="fas fa-save"></i> Save Changes
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('personal')">Personal Info</button>
+            <button class="tab-btn" onclick="switchTab('profile')">Profile Image</button>
+            <button class="tab-btn" onclick="switchTab('about')">About Me</button>
+            <button class="tab-btn" onclick="switchTab('skills')">Skills</button>
+            <button class="tab-btn" onclick="switchTab('projects')">Projects</button>
+            <button class="tab-btn" onclick="switchTab('experience')">Experience</button>
+            <button class="tab-btn" onclick="switchTab('education')">Education</button>
+            <button class="tab-btn" onclick="switchTab('certificates')">Certificates</button>
+            <button class="tab-btn" onclick="switchTab('contact')">Contact</button>
+        </div>
+
+        <!-- Personal Info Tab -->
+        <div id="personal-tab" class="tab-pane active">
+            <div class="section-card">
+                <h2 class="section-title">Personal Information</h2>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="personal-name" value="Abhinav Bhumaji Mamidwar">
+                </div>
+                <div class="form-group">
+                    <label>Professional Title</label>
+                    <input type="text" id="personal-title" value="Data Scientist">
+                </div>
+                <div class="form-group">
+                    <label>Tagline</label>
+                    <input type="text" id="personal-tagline" value="I humanize data">
+                </div>
+                <div class="form-group">
+                    <label>Bio / Short Description</label>
+                    <textarea id="personal-bio" rows="3">Passionate data scientist with expertise in machine learning, statistical analysis, and data visualization. I love turning complex data into actionable insights.</textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="personal-email" value="abhinavmamidwar22@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id="personal-phone" value="7038797238">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="personal-location" value="Pune, Maharashtra">
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Image Tab -->
+        <div id="profile-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">Profile Image</h2>
+                <div class="form-group">
+                    <label>Profile Image URL</label>
+                    <input type="text" id="profile-image" value="https://ui-avatars.com/api/?name=Abhinav+Mamidwar&size=400&background=3b82f6&color=fff&bold=true">
+                    <p style="color: #94a3b8; margin-top: 0.5rem; font-size: 0.9rem;">Upload your image to Imgur or any image hosting and paste the URL here</p>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <img id="profile-preview" src="https://ui-avatars.com/api/?name=Abhinav+Mamidwar&size=400&background=3b82f6&color=fff&bold=true" style="width: 200px; height: 200px; border-radius: 50%; border: 3px solid #3b82f6;">
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Tab -->
+        <div id="about-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">About Me</h2>
+                <div class="form-group">
+                    <label>About Me Title</label>
+                    <input type="text" id="about-title" value="Passionate Data Scientist">
+                </div>
+                <div class="form-group">
+                    <label>About Me Description (Paragraph 1)</label>
+                    <textarea id="about-desc1" rows="3">I'm a data scientist with a passion for turning raw data into meaningful insights. With over 5 years of experience in machine learning and statistical analysis, I've helped businesses make data-driven decisions that drive growth and innovation.</textarea>
+                </div>
+                <div class="form-group">
+                    <label>About Me Description (Paragraph 2)</label>
+                    <textarea id="about-desc2" rows="3">My approach combines technical expertise with creative problem-solving. I believe that data tells a story, and my job is to help you understand that story and use it to your advantage.</textarea>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">About Highlights</h2>
+                <div id="highlights-container"></div>
+                <button class="add-new-btn" onclick="addHighlight()">
+                    <i class="fas fa-plus"></i> Add New Highlight
+                </button>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">About Stats</h2>
+                <div id="stats-container"></div>
+                <button class="add-new-btn" onclick="addStat()">
+                    <i class="fas fa-plus"></i> Add New Stat
+                </button>
+            </div>
+        </div>
+
+        <!-- Skills Tab -->
+        <div id="skills-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">Skills Categories</h2>
+                <div id="skills-container"></div>
+                <button class="add-new-btn" onclick="addSkillCategory()">
+                    <i class="fas fa-plus"></i> Add New Skill Category
+                </button>
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="projects-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">Projects</h2>
+                <div id="projects-container"></div>
+                <button class="add-new-btn" onclick="addProject()">
+                    <i class="fas fa-plus"></i> Add New Project
+                </button>
+            </div>
+        </div>
+
+        <!-- Experience Tab -->
+        <div id="experience-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">Work Experience</h2>
+                <div id="experience-container"></div>
+                <button class="add-new-btn" onclick="addExperience()">
+                    <i class="fas fa-plus"></i> Add New Experience
+                </button>
+            </div>
+        </div>
+
+        <!-- Education Tab -->
+        <div id="education-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">Education</h2>
+                <div id="education-container"></div>
+                <button class="add-new-btn" onclick="addEducation()">
+                    <i class="fas fa-plus"></i> Add New Education
+                </button>
+            </div>
+        </div>
+
+        <!-- Certificates Tab -->
+        <div id="certificates-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">Certificates</h2>
+                <div id="certificates-container"></div>
+                <button class="add-new-btn" onclick="addCertificate()">
+                    <i class="fas fa-plus"></i> Add New Certificate
+                </button>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact-tab" class="tab-pane">
+            <div class="section-card">
+                <h2 class="section-title">Social Media Links</h2>
+                <div class="form-group">
+                    <label>LinkedIn URL</label>
+                    <input type="text" id="social-linkedin" value="#">
+                </div>
+                <div class="form-group">
+                    <label>GitHub URL</label>
+                    <input type="text" id="social-github" value="#">
+                </div>
+                <div class="form-group">
+                    <label>Twitter URL</label>
+                    <input type="text" id="social-twitter" value="#">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="preview-btn" target="_blank">
+        <i class="fas fa-eye"></i>
+    </a>
+
+    <a href="#" class="admin-logout" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+    </a>
+
+    <script>
+        // Data structure
+        let portfolioData = {
+            personal: {
+                name: "Abhinav Bhumaji Mamidwar",
+                title: "Data Scientist",
+                tagline: "I humanize data",
+                bio: "Passionate data scientist with expertise in machine learning, statistical analysis, and data visualization. I love turning complex data into actionable insights.",
+                email: "abhinavmamidwar22@gmail.com",
+                phone: "7038797238",
+                location: "Pune, Maharashtra"
+            },
+            profile: {
+                image: "https://ui-avatars.com/api/?name=Abhinav+Mamidwar&size=400&background=3b82f6&color=fff&bold=true"
+            },
+            about: {
+                title: "Passionate Data Scientist",
+                description1: "I'm a data scientist with a passion for turning raw data into meaningful insights. With over 5 years of experience in machine learning and statistical analysis, I've helped businesses make data-driven decisions that drive growth and innovation.",
+                description2: "My approach combines technical expertise with creative problem-solving. I believe that data tells a story, and my job is to help you understand that story and use it to your advantage.",
+                highlights: [
+                    { icon: "brain", text: "Machine Learning", desc: "Building predictive models" },
+                    { icon: "chart-line", text: "Data Analysis", desc: "Extracting insights" },
+                    { icon: "eye", text: "Data Visualization", desc: "Telling stories with data" },
+                    { icon: "cogs", text: "Problem Solving", desc: "Creative solutions" }
+                ],
+                stats: [
+                    { number: "5+", label: "Years Experience" },
+                    { number: "15+", label: "Projects Completed" },
+                    { number: "25+", label: "Skills Mastered" },
+                    { number: "20+", label: "Happy Clients" }
+                ]
+            },
+            skills: [
+                {
+                    category: "Programming Languages",
+                    items: ["Python", "R", "SQL"]
+                },
+                {
+                    category: "Data Science",
+                    items: ["Machine Learning", "Statistical Analysis", "Data Visualization"]
+                },
+                {
+                    category: "Frameworks & Libraries",
+                    items: ["Pandas", "Scikit-learn", "TensorFlow"]
+                },
+                {
+                    category: "Tools & Platforms",
+                    items: ["Jupyter", "Tableau", "Power BI", "Git"]
+                }
+            ],
+            projects: [
+                {
+                    id: 1,
+                    title: "Customer Churn Prediction",
+                    description: "Machine learning model to predict customer churn with 92% accuracy",
+                    date: "March 2026",
+                    technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+                    featured: true,
+                    category: "Machine Learning",
+                    image: "📊",
+                    liveLink: "#",
+                    githubLink: "#"
+                },
+                {
+                    id: 2,
+                    title: "Sales Dashboard",
+                    description: "Interactive dashboard for sales analytics and reporting",
+                    date: "March 2026",
+                    technologies: ["React", "D3.js", "Python", "Flask", "PostgreSQL"],
+                    featured: true,
+                    category: "Data Analysis",
+                    image: "📈",
+                    liveLink: "#",
+                    githubLink: "#"
+                }
+            ],
+            experience: [
+                {
+                    id: 1,
+                    role: "Senior Data Scientist",
+                    company: "Innovate AI",
+                    startDate: "Sep 2022",
+                    endDate: "Present",
+                    current: true,
+                    description: "Leading model development for personalization features across the product suite, focusing on recommendation systems and experiment-driven improvements.",
+                    highlights: [
+                        "Launched a personalization recommender that increased click-through by 18%",
+                        "Introduced A/B testing framework and automated analysis pipelines",
+                        "Lead team of 5 data scientists"
+                    ]
+                },
+                {
+                    id: 2,
+                    role: "Data Scientist",
+                    company: "Acme Corporation",
+                    startDate: "Jun 2019",
+                    endDate: "Aug 2022",
+                    current: false,
+                    description: "Built end-to-end ML pipelines for customer segmentation and churn prediction. Collaborated with product and engineering to deploy models in production.",
+                    highlights: [
+                        "Developed a churn prediction model that improved retention by 12%",
+                        "Designed ETL pipelines to process 5M+ events per day",
+                        "Mentored two junior data scientists"
+                    ]
+                }
+            ],
+            education: [
+                {
+                    id: 1,
+                    degree: "M.S. in Data Science",
+                    school: "University of Data Science",
+                    startDate: "Sep 2016",
+                    endDate: "Jun 2018",
+                    gpa: "3.9",
+                    achievements: [
+                        "Thesis on time-series forecasting for retail sales",
+                        "Graduate research assistantship"
+                    ]
+                },
+                {
+                    id: 2,
+                    degree: "B.S. in Computer Science",
+                    school: "State University",
+                    startDate: "Sep 2012",
+                    endDate: "Jun 2016",
+                    gpa: null,
+                    achievements: [
+                        "Dean's List",
+                        "Capstone: Scalable data ingestion system"
+                    ]
+                }
+            ],
+            certificates: [
+                {
+                    id: 1,
+                    title: "Data Science Fundamentals",
+                    issuer: "Coursera - Stanford University",
+                    date: "2024",
+                    icon: "📜"
+                },
+                {
+                    id: 2,
+                    title: "Machine Learning Specialization",
+                    issuer: "Coursera - Andrew Ng",
+                    date: "2024",
+                    icon: "🎓"
+                },
+                {
+                    id: 3,
+                    title: "Python for Data Science",
+                    issuer: "IBM - Cognitive Class",
+                    date: "2024",
+                    icon: "🐍"
+                },
+                {
+                    id: 4,
+                    title: "Data Visualization",
+                    issuer: "Tableau Public",
+                    date: "2024",
+                    icon: "📊"
+                },
+                {
+                    id: 5,
+                    title: "Statistics for Data Science",
+                    issuer: "edX - MIT",
+                    date: "2024",
+                    icon: "📈"
+                },
+                {
+                    id: 6,
+                    title: "Cloud Computing for Data",
+                    issuer: "AWS Training",
+                    date: "2024",
+                    icon: "☁️"
+                }
+            ],
+            social: {
+                linkedin: "#",
+                github: "#",
+                twitter: "#"
+            }
+        };
+
+        // Load data from localStorage
+        function loadData() {
+            const saved = localStorage.getItem('portfolioData');
+            if (saved) {
+                portfolioData = JSON.parse(saved);
+            }
+            renderAllTabs();
+        }
+
+        // Save data
+        function saveAllData() {
+            updateDataFromForms();
+            localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
+            
+            // Download as JSON file
+            const blob = new Blob([JSON.stringify(portfolioData, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            a.click();
+            
+            alert('Data saved! File downloaded. Upload this to your hosting to update the live site.');
+        }
+
+        // Switch tabs
+        window.switchTab = function(tabName) {
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        };
+
+        // Render all tabs
+        function renderAllTabs() {
+            // Personal
+            document.getElementById('personal-name').value = portfolioData.personal.name;
+            document.getElementById('personal-title').value = portfolioData.personal.title;
+            document.getElementById('personal-tagline').value = portfolioData.personal.tagline;
+            document.getElementById('personal-bio').value = portfolioData.personal.bio;
+            document.getElementById('personal-email').value = portfolioData.personal.email;
+            document.getElementById('personal-phone').value = portfolioData.personal.phone;
+            document.getElementById('personal-location').value = portfolioData.personal.location;
+            
+            // Profile
+            document.getElementById('profile-image').value = portfolioData.profile.image;
+            document.getElementById('profile-preview').src = portfolioData.profile.image;
+            
+            // About
+            document.getElementById('about-title').value = portfolioData.about.title;
+            document.getElementById('about-desc1').value = portfolioData.about.description1;
+            document.getElementById('about-desc2').value = portfolioData.about.description2;
+            
+            renderHighlights();
+            renderStats();
+            renderSkills();
+            renderProjects();
+            renderExperience();
+            renderEducation();
+            renderCertificates();
+            
+            // Social
+            document.getElementById('social-linkedin').value = portfolioData.social.linkedin;
+            document.getElementById('social-github').value = portfolioData.social.github;
+            document.getElementById('social-twitter').value = portfolioData.social.twitter;
+        }
+
+        // Highlights
+        function renderHighlights() {
+            const container = document.getElementById('highlights-container');
+            container.innerHTML = portfolioData.about.highlights.map((h, index) => `
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>Highlight ${index + 1}</h3>
+                        <button class="delete-btn" onclick="deleteHighlight(${index})">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Icon</label>
+                        <input type="text" value="${h.icon}" onchange="updateHighlight(${index}, 'icon', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Text</label>
+                        <input type="text" value="${h.text}" onchange="updateHighlight(${index}, 'text', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" value="${h.desc}" onchange="updateHighlight(${index}, 'desc', this.value)">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addHighlight = function() {
+            portfolioData.about.highlights.push({ icon: "star", text: "New Highlight", desc: "Description" });
+            renderHighlights();
+        };
+
+        window.deleteHighlight = function(index) {
+            portfolioData.about.highlights.splice(index, 1);
+            renderHighlights();
+        };
+
+        window.updateHighlight = function(index, field, value) {
+            portfolioData.about.highlights[index][field] = value;
+        };
+
+        // Stats
+        function renderStats() {
+            const container = document.getElementById('stats-container');
+            container.innerHTML = portfolioData.about.stats.map((stat, index) => `
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>Stat ${index + 1}</h3>
+                        <button class="delete-btn" onclick="deleteStat(${index})">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Number</label>
+                        <input type="text" value="${stat.number}" onchange="updateStat(${index}, 'number', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Label</label>
+                        <input type="text" value="${stat.label}" onchange="updateStat(${index}, 'label', this.value)">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addStat = function() {
+            portfolioData.about.stats.push({ number: "0+", label: "New Stat" });
+            renderStats();
+        };
+
+        window.deleteStat = function(index) {
+            portfolioData.about.stats.splice(index, 1);
+            renderStats();
+        };
+
+        window.updateStat = function(index, field, value) {
+            portfolioData.about.stats[index][field] = value;
+        };
+
+        // Skills
+        function renderSkills() {
+            const container = document.getElementById('skills-container');
+            container.innerHTML = portfolioData.skills.map((skill, catIndex) => `
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>${skill.category}</h3>
+                        <button class="delete-btn" onclick="deleteSkillCategory(${catIndex})">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Category Name</label>
+                        <input type="text" value="${skill.category}" onchange="updateSkillCategory(${catIndex}, 'category', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Skills</label>
+                        <div id="skills-${catIndex}" class="items-container">
+                            ${skill.items.map((item, i) => `
+                                <span class="item-tag">
+                                    ${item}
+                                    <button onclick="removeSkillItem(${catIndex}, ${i})">×</button>
+                                </span>
+                            `).join('')}
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-skill-${catIndex}" placeholder="New skill" style="flex: 1;">
+                            <button class="add-btn" onclick="addSkillItem(${catIndex})">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addSkillCategory = function() {
+            portfolioData.skills.push({ category: "New Category", items: [] });
+            renderSkills();
+        };
+
+        window.deleteSkillCategory = function(index) {
+            portfolioData.skills.splice(index, 1);
+            renderSkills();
+        };
+
+        window.updateSkillCategory = function(index, field, value) {
+            portfolioData.skills[index][field] = value;
+        };
+
+        window.addSkillItem = function(catIndex) {
+            const input = document.getElementById(`new-skill-${catIndex}`);
+            if (input.value.trim()) {
+                portfolioData.skills[catIndex].items.push(input.value.trim());
+                input.value = '';
+                renderSkills();
+            }
+        };
+
+        window.removeSkillItem = function(catIndex, itemIndex) {
+            portfolioData.skills[catIndex].items.splice(itemIndex, 1);
+            renderSkills();
+        };
+
+        // Projects
+        function renderProjects() {
+            const container = document.getElementById('projects-container');
+            container.innerHTML = portfolioData.projects.map((project, index) => `
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>${project.title}</h3>
+                        <button class="delete-btn" onclick="deleteProject(${index})">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" value="${project.title}" onchange="updateProject(${index}, 'title', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea onchange="updateProject(${index}, 'description', this.value)">${project.description}</textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="text" value="${project.date}" onchange="updateProject(${index}, 'date', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" value="${project.category}" onchange="updateProject(${index}, 'category', this.value)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Image Emoji</label>
+                        <input type="text" value="${project.image}" onchange="updateProject(${index}, 'image', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" ${project.featured ? 'checked' : ''} onchange="updateProject(${index}, 'featured', this.checked)">
+                            Featured Project
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Live Demo Link</label>
+                            <input type="text" value="${project.liveLink}" onchange="updateProject(${index}, 'liveLink', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>GitHub Link</label>
+                            <input type="text" value="${project.githubLink}" onchange="updateProject(${index}, 'githubLink', this.value)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Technologies</label>
+                        <div id="project-tech-${index}" class="items-container">
+                            ${project.technologies.map((tech, i) => `
+                                <span class="item-tag">
+                                    ${tech}
+                                    <button onclick="removeProjectTech(${index}, ${i})">×</button>
+                                </span>
+                            `).join('')}
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-tech-${index}" placeholder="New technology" style="flex: 1;">
+                            <button class="add-btn" onclick="addProjectTech(${index})">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addProject = function() {
+            portfolioData.projects.push({
+                id: portfolioData.projects.length + 1,
+                title: "New Project",
+                description: "Project description",
+                date: "March 2026",
+                technologies: [],
+                featured: false,
+                category: "Machine Learning",
+                image: "📊",
+                liveLink: "#",
+                githubLink: "#"
+            });
+            renderProjects();
+        };
+
+        window.deleteProject = function(index) {
+            portfolioData.projects.splice(index, 1);
+            renderProjects();
+        };
+
+        window.updateProject = function(index, field, value) {
+            portfolioData.projects[index][field] = value;
+        };
+
+        window.addProjectTech = function(projectIndex) {
+            const input = document.getElementById(`new-tech-${projectIndex}`);
+            if (input.value.trim()) {
+                portfolioData.projects[projectIndex].technologies.push(input.value.trim());
+                input.value = '';
+                renderProjects();
+            }
+        };
+
+        window.removeProjectTech = function(projectIndex, techIndex) {
+            portfolioData.projects[projectIndex].technologies.splice(techIndex, 1);
+            renderProjects();
+        };
+
+        // Experience
+        function renderExperience() {
+            const container = document.getElementById('experience-container');
+            container.innerHTML = portfolioData.experience.map((exp, index) => `
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>${exp.role} at ${exp.company}</h3>
+                        <button class="delete-btn" onclick="deleteExperience(${index})">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <input type="text" value="${exp.role}" onchange="updateExperience(${index}, 'role', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" value="${exp.company}" onchange="updateExperience(${index}, 'company', this.value)">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="text" value="${exp.startDate}" onchange="updateExperience(${index}, 'startDate', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="text" value="${exp.endDate}" onchange="updateExperience(${index}, 'endDate', this.value)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" ${exp.current ? 'checked' : ''} onchange="updateExperience(${index}, 'current', this.checked)">
+                            Current Position
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea onchange="updateExperience(${index}, 'description', this.value)">${exp.description}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Highlights</label>
+                        <div id="exp-highlights-${index}" class="items-container">
+                            ${exp.highlights.map((h, i) => `
+                                <span class="item-tag">
+                                    ${h}
+                                    <button onclick="removeExpHighlight(${index}, ${i})">×</button>
+                                </span>
+                            `).join('')}
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-highlight-${index}" placeholder="New highlight" style="flex: 1;">
+                            <button class="add-btn" onclick="addExpHighlight(${index})">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addExperience = function() {
+            portfolioData.experience.push({
+                id: portfolioData.experience.length + 1,
+                role: "New Role",
+                company: "Company Name",
+                startDate: "Jan 2020",
+                endDate: "Present",
+                current: true,
+                description: "Job description",
+                highlights: []
+            });
+            renderExperience();
+        };
+
+        window.deleteExperience = function(index) {
+            portfolioData.experience.splice(index, 1);
+            renderExperience();
+        };
+
+        window.updateExperience = function(index, field, value) {
+            portfolioData.experience[index][field] = value;
+        };
+
+        window.addExpHighlight = function(expIndex) {
+            const input = document.getElementById(`new-highlight-${expIndex}`);
+            if (input.value.trim()) {
+                portfolioData.experience[expIndex].highlights.push(input.value.trim());
+                input.value = '';
+                renderExperience();
+            }
+        };
+
+        window.removeExpHighlight = function(expIndex, highlightIndex) {
+            portfolioData.experience[expIndex].highlights.splice(highlightIndex, 1);
+            renderExperience();
+        };
+
+        // Education
+        function renderEducation() {
+            const container = document.getElementById('education-container');
+            container.innerHTML = portfolioData.education.map((edu, index) => `
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>${edu.degree}</h3>
+                        <button class="delete-btn" onclick="deleteEducation(${index})">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Degree</label>
+                        <input type="text" value="${edu.degree}" onchange="updateEducation(${index}, 'degree', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>School</label>
+                        <input type="text" value="${edu.school}" onchange="updateEducation(${index}, 'school', this.value)">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <input type="text" value="${edu.startDate}" onchange="updateEducation(${index}, 'startDate', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input type="text" value="${edu.endDate}" onchange="updateEducation(${index}, 'endDate', this.value)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>GPA (optional)</label>
+                        <input type="text" value="${edu.gpa || ''}" onchange="updateEducation(${index}, 'gpa', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Achievements</label>
+                        <div id="edu-achievements-${index}" class="items-container">
+                            ${edu.achievements.map((a, i) => `
+                                <span class="item-tag">
+                                    ${a}
+                                    <button onclick="removeEduAchievement(${index}, ${i})">×</button>
+                                </span>
+                            `).join('')}
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-achievement-${index}" placeholder="New achievement" style="flex: 1;">
+                            <button class="add-btn" onclick="addEduAchievement(${index})">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addEducation = function() {
+            portfolioData.education.push({
+                id: portfolioData.education.length + 1,
+                degree: "New Degree",
+                school: "University",
+                startDate: "2016",
+                endDate: "2020",
+                gpa: null,
+                achievements: []
+            });
+            renderEducation();
+        };
+
+        window.deleteEducation = function(index) {
+            portfolioData.education.splice(index, 1);
+            renderEducation();
+        };
+
+        window.updateEducation = function(index, field, value) {
+            portfolioData.education[index][field] = value;
+        };
+
+        window.addEduAchievement = function(eduIndex) {
+            const input = document.getElementById(`new-achievement-${eduIndex}`);
+            if (input.value.trim()) {
+                portfolioData.education[eduIndex].achievements.push(input.value.trim());
+                input.value = '';
+                renderEducation();
+            }
+        };
+
+        window.removeEduAchievement = function(eduIndex, achievementIndex) {
+            portfolioData.education[eduIndex].achievements.splice(achievementIndex, 1);
+            renderEducation();
+        };
+
+        // Certificates
+        function renderCertificates() {
+            const container = document.getElementById('certificates-container');
+            container.innerHTML = portfolioData.certificates.map((cert, index) => `
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3>${cert.title}</h3>
+                        <button class="delete-btn" onclick="deleteCertificate(${index})">Delete</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" value="${cert.title}" onchange="updateCertificate(${index}, 'title', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Issuer</label>
+                        <input type="text" value="${cert.issuer}" onchange="updateCertificate(${index}, 'issuer', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="text" value="${cert.date}" onchange="updateCertificate(${index}, 'date', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Icon Emoji</label>
+                        <input type="text" value="${cert.icon}" onchange="updateCertificate(${index}, 'icon', this.value)">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addCertificate = function() {
+            portfolioData.certificates.push({
+                id: portfolioData.certificates.length + 1,
+                title: "New Certificate",
+                issuer: "Issuer",
+                date: "2024",
+                icon: "📜"
+            });
+            renderCertificates();
+        };
+
+        window.deleteCertificate = function(index) {
+            portfolioData.certificates.splice(index, 1);
+            renderCertificates();
+        };
+
+        window.updateCertificate = function(index, field, value) {
+            portfolioData.certificates[index][field] = value;
+        };
+
+        // Update data from forms
+        function updateDataFromForms() {
+            portfolioData.personal.name = document.getElementById('personal-name').value;
+            portfolioData.personal.title = document.getElementById('personal-title').value;
+            portfolioData.personal.tagline = document.getElementById('personal-tagline').value;
+            portfolioData.personal.bio = document.getElementById('personal-bio').value;
+            portfolioData.personal.email = document.getElementById('personal-email').value;
+            portfolioData.personal.phone = document.getElementById('personal-phone').value;
+            portfolioData.personal.location = document.getElementById('personal-location').value;
+            
+            portfolioData.profile.image = document.getElementById('profile-image').value;
+            
+            portfolioData.about.title = document.getElementById('about-title').value;
+            portfolioData.about.description1 = document.getElementById('about-desc1').value;
+            portfolioData.about.description2 = document.getElementById('about-desc2').value;
+            
+            portfolioData.social.linkedin = document.getElementById('social-linkedin').value;
+            portfolioData.social.github = document.getElementById('social-github').value;
+            portfolioData.social.twitter = document.getElementById('social-twitter').value;
+        }
+
+        // Logout (simple redirect)
+        window.logout = function() {
+            if (confirm('Logout from admin panel?')) {
+                window.location.href = 'index.html';
+            }
+        };
+
+        // Profile image preview
+        document.getElementById('profile-image').addEventListener('input', function(e) {
+            document.getElementById('profile-preview').src = e.target.value;
+        });
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+{
+  "personal": {
+    "name": "Abhinav Bhumaji Mamidwar",
+    "title": "Data Scientist",
+    "tagline": "I humanize data",
+    "bio": "Passionate data scientist with expertise in machine learning, statistical analysis, and data visualization. I love turning complex data into actionable insights.",
+    "email": "abhinavmamidwar22@gmail.com",
+    "phone": "7038797238",
+    "location": "Pune, Maharashtra"
+  },
+  "profile": {
+    "image": "https://ui-avatars.com/api/?name=Abhinav+Mamidwar&size=400&background=3b82f6&color=fff&bold=true"
+  },
+  "about": {
+    "title": "Passionate Data Scientist",
+    "description1": "I'm a data scientist with a passion for turning raw data into meaningful insights. With over 5 years of experience in machine learning and statistical analysis, I've helped businesses make data-driven decisions that drive growth and innovation.",
+    "description2": "My approach combines technical expertise with creative problem-solving. I believe that data tells a story, and my job is to help you understand that story and use it to your advantage.",
+    "highlights": [
+      { "icon": "brain", "text": "Machine Learning", "desc": "Building predictive models" },
+      { "icon": "chart-line", "text": "Data Analysis", "desc": "Extracting insights" },
+      { "icon": "eye", "text": "Data Visualization", "desc": "Telling stories with data" },
+      { "icon": "cogs", "text": "Problem Solving", "desc": "Creative solutions" }
+    ],
+    "stats": [
+      { "number": "5+", "label": "Years Experience" },
+      { "number": "15+", "label": "Projects Completed" },
+      { "number": "25+", "label": "Skills Mastered" },
+      { "number": "20+", "label": "Happy Clients" }
+    ]
+  },
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "items": ["Python", "R", "SQL"]
+    },
+    {
+      "category": "Data Science",
+      "items": ["Machine Learning", "Statistical Analysis", "Data Visualization"]
+    },
+    {
+      "category": "Frameworks & Libraries",
+      "items": ["Pandas", "Scikit-learn", "TensorFlow"]
+    },
+    {
+      "category": "Tools & Platforms",
+      "items": ["Jupyter", "Tableau", "Power BI", "Git"]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Customer Churn Prediction",
+      "description": "Machine learning model to predict customer churn with 92% accuracy",
+      "date": "March 2026",
+      "technologies": ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+      "featured": true,
+      "category": "Machine Learning",
+      "image": "📊",
+      "liveLink": "#",
+      "githubLink": "#"
+    },
+    {
+      "id": 2,
+      "title": "Sales Dashboard",
+      "description": "Interactive dashboard for sales analytics and reporting",
+      "date": "March 2026",
+      "technologies": ["React", "D3.js", "Python", "Flask", "PostgreSQL"],
+      "featured": true,
+      "category": "Data Analysis",
+      "image": "📈",
+      "liveLink": "#",
+      "githubLink": "#"
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Senior Data Scientist",
+      "company": "Innovate AI",
+      "startDate": "Sep 2022",
+      "endDate": "Present",
+      "current": true,
+      "description": "Leading model development for personalization features across the product suite, focusing on recommendation systems and experiment-driven improvements.",
+      "highlights": [
+        "Launched a personalization recommender that increased click-through by 18%",
+        "Introduced A/B testing framework and automated analysis pipelines",
+        "Lead team of 5 data scientists"
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Data Scientist",
+      "company": "Acme Corporation",
+      "startDate": "Jun 2019",
+      "endDate": "Aug 2022",
+      "current": false,
+      "description": "Built end-to-end ML pipelines for customer segmentation and churn prediction. Collaborated with product and engineering to deploy models in production.",
+      "highlights": [
+        "Developed a churn prediction model that improved retention by 12%",
+        "Designed ETL pipelines to process 5M+ events per day",
+        "Mentored two junior data scientists"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "M.S. in Data Science",
+      "school": "University of Data Science",
+      "startDate": "Sep 2016",
+      "endDate": "Jun 2018",
+      "gpa": "3.9",
+      "achievements": [
+        "Thesis on time-series forecasting for retail sales",
+        "Graduate research assistantship"
+      ]
+    },
+    {
+      "id": 2,
+      "degree": "B.S. in Computer Science",
+      "school": "State University",
+      "startDate": "Sep 2012",
+      "endDate": "Jun 2016",
+      "gpa": null,
+      "achievements": [
+        "Dean's List",
+        "Capstone: Scalable data ingestion system"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "id": 1,
+      "title": "Data Science Fundamentals",
+      "issuer": "Coursera - Stanford University",
+      "date": "2024",
+      "icon": "📜"
+    },
+    {
+      "id": 2,
+      "title": "Machine Learning Specialization",
+      "issuer": "Coursera - Andrew Ng",
+      "date": "2024",
+      "icon": "🎓"
+    },
+    {
+      "id": 3,
+      "title": "Python for Data Science",
+      "issuer": "IBM - Cognitive Class",
+      "date": "2024",
+      "icon": "🐍"
+    },
+    {
+      "id": 4,
+      "title": "Data Visualization",
+      "issuer": "Tableau Public",
+      "date": "2024",
+      "icon": "📊"
+    },
+    {
+      "id": 5,
+      "title": "Statistics for Data Science",
+      "issuer": "edX - MIT",
+      "date": "2024",
+      "icon": "📈"
+    },
+    {
+      "id": 6,
+      "title": "Cloud Computing for Data",
+      "issuer": "AWS Training",
+      "date": "2024",
+      "icon": "☁️"
+    }
+  ],
+  "social": {
+    "linkedin": "#",
+    "github": "#",
+    "twitter": "#"
+  }
+}
